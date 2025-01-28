@@ -12,10 +12,6 @@ using namespace std::literals;
 using pqxx::operator"" _zv;
 
 void AuthorRepositoryImpl::Save(const domain::Author& author) {
-    // Пока каждое обращение к репозиторию выполняется внутри отдельной транзакции
-    // В будущих уроках вы узнаете про паттерн Unit of Work, при помощи которого сможете несколько
-    // запросов выполнить в рамках одной транзакции.
-    // Вы также может самостоятельно почитать информацию про этот паттерн и применить его здесь.
     work_.exec_params(
         R"(
 INSERT INTO authors (id, name) VALUES ($1, $2)
