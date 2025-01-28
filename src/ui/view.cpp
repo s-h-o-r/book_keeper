@@ -72,8 +72,6 @@ View::View(menu::Menu& menu, app::UseCases& use_cases, std::istream& input, std:
     };
     menu_.AddAction(  //
         "AddAuthor"s, "name"s, "Adds author"s, lambda
-        // либо
-        // [this](auto& cmd_input) { return AddAuthor(cmd_input); }
     );
     menu_.AddAction("AddBook"s, "<pub year> <title>"s, "Adds book"s,
                     std::bind(&View::AddBook, this, ph::_1));
